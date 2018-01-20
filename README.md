@@ -1,6 +1,6 @@
 ### Basic Usage
 ```
-$ docker run --rm --d --p=222:22 --env ROOT_PASSWORD=123 registry.cn-shenzhen.aliyuncs.com/xuybin/vm
+$ docker run -d -p 222:22 -e ROOT_PASSWORD=123 registry.cn-shenzhen.aliyuncs.com/xuybin/vm
 ```
 
 After the container is up you are able to ssh in it as root with the in --env provided password for "root"-user.

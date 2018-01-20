@@ -10,10 +10,10 @@ RUN yum install -y openssh openssh-server openssh-clients \
 		 echo '  StrictHostKeyChecking no'; \
 		 echo '  LogLevel quiet'; \
 	  } > /root/.ssh/config \
-
+ && echo 'root:root' | chpasswd
  && sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/' /etc/ssh/sshd_config \
  && echo -e '#!/bin/sh\n'\
-'echo "root:${ROOT_PASSWORD}" | chpasswd '\
+'echo "root:${ROOT_PASSWORD}" | chpasswd\n'\
 'exec /usr/sbin/sshd -D '\
 '\n'\
 >/usr/local/bin/entrypoint.sh \
